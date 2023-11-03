@@ -9,3 +9,6 @@ collapse_button.addEventListener('click', () => {
     collapse_button.classList.toggle('collapsing-icon');
     ship_image.classList.toggle('switching_image_bg');
 });
+
+function hey() {
+}

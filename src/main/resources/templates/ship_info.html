@@ -15,7 +15,7 @@
 
             <div id="image-layer">
                 <div id="image-container">
-                    <img th:style="'top: '+${imagePos.top} + 'px; left: ' + ${imagePos.left} + 'px;'"
+                    <img id="ship-image" th:style="'top: '+${imagePos.top} + 'px; left: ' + ${imagePos.left} + 'px;'"
                          th:src="@{'/images/ship_images/'+ ${ship.id} + '.png'}" alt=""
                          th:width="${imagePos.width}" th:height="${imagePos.height}">
                 </div>

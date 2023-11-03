@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" th:href="@{/css/shipList.css}">
+    <title>List of Ships by Images</title>
+</head>
+<body>
+    <div id="outer-container">
+        <div id="inner-container">
+            <div id="filter-container">
+                <form action="/text_search" method="post">
+                    <div id="search-container">
+                        <input type="text" name="ship_text_name" autocomplete="off" placeholder="Type in ship name">
+                        <div id="class-search-button">Class</div>
+                        <div id="rarity-search-button">Rarity</div>
+                    </div>
+                </form>
+                <div id="search-option-container">
+                    <div id="search-class" class="search-option">
+                        <ul>
+                            <li><span onclick="fetchShipListClass('bb')">BB/BC/BBV/BM</span></li>
+                            <li><span onclick="fetchShipListClass('cv')">CV/CVL</span></li>
+                            <li><span onclick="fetchShipListClass('ca')">CA/CB</span></li>
+                            <li><span onclick="fetchShipListClass('cl')">CL</span></li>
+                            <li><span onclick="fetchShipListClass('dd')">DD/DDG</span></li>
+                            <li><span onclick="fetchShipListClass('ss')">SS/SSV/IX</span></li>
+                            <li><span onclick="fetchShipListClass('other')">Other</span></li>
+                            <li><span>All</span></li>
+                        </ul>
+                    </div>
+                    <div id="search-rarity" class="search-option">
+                        <ul>
+                            <li><span onclick="fetchShipListRarity('ultra')">Ultra Rare</span></li>
+                            <li><span onclick="fetchShipListRarity('super')">Super Rare</span></li>
+                            <li><span onclick="fetchShipListRarity('elite')">Elite</span></li>
+                            <li><span onclick="fetchShipListRarity('rare')">Rare</span></li>
+                            <li><span onclick="fetchShipListRarity('normal')">Normal</span></li>
+                            <li><span onclick="fetchShipListRarity('all')">All</span></li>
+                        </ul>
+                    </div>
+                    <div id="search-holder" class="search-option" style="display:block">
+                        <ul>
+                            <li style="color: rgba(54,57,63,255);">Bg</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ul id="icon-list-box">
+                <li class="icon-list-container" th:fragment="content" th:each="ship : ${ship_list}">
+                    <div th:class="'icon-container ' + ${ship.rarity_class}">
+                        <a th:href="'/ship_list/ship_info/'+ ${#strings.toLowerCase(ship[0])}">
+                            <img th:src="@{'/images/ship_icons/'+ ${#strings.toLowerCase(ship[0])} + '.png'}" alt="icon">
+                        </a>
+                    </div>
+                    <div class="ship-name" th:text="${ship[0]}"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script th:src="@{'/js/ship_list.js'}"></script>
+
+</body>
+</html>

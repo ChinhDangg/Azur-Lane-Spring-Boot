@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li th:text="${ship.name}"></li>
+        <li>Rarity: <span th:text="${ship.rarity}"></span></li>
+        <li>Classification: <span th:text="${ship.classification}"></span></li>
+        <li>Faction: <span th:text="${ship.faction}"></span></li>
+        <li>Class: <span th:text="${ship.ship_class}"></span></li>
+        <li>Construction time: <span th:text="${ship.construction_time}"></span></li>
+        <li>Armor Type: <span th:text="${ship.armor}"></span></li>
+    </ul>
+    <ul>
+        <li th:text="${stat120.health}"></li>
+        <li th:text="${stat120.firepower}"></li>
+        <li th:text="${stat120.torpedo}"></li>
+    </ul>
+    <ul>
+        <li th:text="${stat125.health}"></li>
+        <li th:text="${stat125.firepower}"></li>
+        <li th:text="${stat125.torpedo}"></li>
+    </ul>
+   <table>
+       <tr>
+           <th>Slot</th>
+           <th>Efficiency</th>
+           <th>Equipment</th>
+           <th>Mount #</th>
+       </tr>
+       <tr>
+           <th>1</th>
+           <td>
+               <span th:text="${gearSlot.efficiency1_num[0]}"></span>
+               ->
+               <span th:text="${gearSlot.efficiency1_num[1]}"></span>
+           </td>
+           <td th:text="${gearSlot.equipment1}"></td>
+           <td th:text="${gearSlot.mount_num1}"></td>
+       </tr>
+       <tr>
+           <th>2</th>
+           <td>
+               <span th:text="${gearSlot.efficiency2_num[0]}"></span>
+               ->
+               <span th:text="${gearSlot.efficiency2_num[1]}"></span>
+           </td>
+           <td th:text="${gearSlot.equipment2}"></td>
+           <td th:text="${gearSlot.mount_num2}"></td>
+       </tr>
+       <tr>
+           <th>3</th>
+           <td>
+               <span th:text="${gearSlot.efficiency3_num[0]}"></span>
+               ->
+               <span th:text="${gearSlot.efficiency3_num[1]}"></span>
+           </td>
+           <td th:text="${gearSlot.equipment3}"></td>
+           <td th:text="${gearSlot.mount_num3}"></td>
+       </tr>
+   </table>
+
+    <ul>
+        <li th:text="${augment.name}"></li>
+        <li>
+            <span th:text="${augment.stat_type1}">: </span>
+            <span th:text="${augment.stat_mod1_num[0]}"></span>
+            +
+            <span th:text="${augment.stat_mod_range_num[0]}"></span>
+            ->
+            <span th:text="${augment.stat_mod1_num[1]}"></span>
+            +
+            <span th:text="${augment.stat_mod_range_num[0]}"></span>
+        </li>
+        <li>
+            <span th:text="${augment.stat_type2}">: </span>
+            <span th:text="${augment.stat_mod2_num[0]}"></span>
+            +
+            <span th:text="${augment.stat_mod_range_num[1]}"></span>
+            ->
+            <span th:text="${augment.stat_mod2_num[1]}"></span>
+            +
+            <span th:text="${augment.stat_mod_range_num[1]}"></span>
+        </li>
+        <li>
+            <span th:text="${augment.mod_effect_name}">:</span>
+            <span th:text="${augment.mod_effect}"></span>
+        </li>
+        <li>
+            <span th:text="${augment.skill_upgrade_name}"></span>
+            <span th:text="${augment.skill_upgrade}"></span>
+        </li>
+    </ul>
+
+    <ul>
+        <li th:each="class : ${statBonus.ship_class}">
+            <span th:text="${class}"></span>
+        </li>
+        <li>
+            <span th:text="${statBonus.stat_type[0]}"></span>
+            <span th:text="${statBonus.stats[0]}"></span>
+        </li>
+        <li>
+            <span th:text="${statBonus.stat_type[1]}"></span>
+            <span th:text="${statBonus.stats[1]}"></span>
+        </li>
+    </ul>
+
+    <ul>
+        <li>Tech Points</li>
+        <li>Collection: <span th:text="${techPoint.collection}"></span></li>
+        <li>Max Limit Break: <span th:text="${techPoint.max_limit_break}"></span></li>
+        <li>Level 120: <span th:text="${techPoint.level120}"></span></li>
+    </ul>
+
+    <ul>
+        <li th:each="skill : ${skills}">
+            <span th:text="${skill.skill_name}"></span>
+            <span th:text="${skill.skill_description}"></span>
+        </li>
+    </ul>
+
+</body>
+</html>

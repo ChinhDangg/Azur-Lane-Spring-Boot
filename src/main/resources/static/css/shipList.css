@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
+}
+
+body {
+    background-color: rgba(47,49,54,255);
+}
+
+li {
+    list-style-type: none;
+}
+
+
+
+#search-container div {
+    cursor: pointer;
+    background-color: rgba(47,49,54,255);
+    border-radius: 1px;
+    color: #fff;
+    display: inline-block;
+}
+
+#search-container div:hover {
+    opacity: 0.3!important;
+}
+
+#search-container input, #search-container div {
+    padding: 10px;
+}
+
+input {
+    padding: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+#search-container {
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.search-option {
+    display: none;
+}
+
+.search-option li {
+    display: inline-block;
+}
+
+.search-option span {
+    color: #888;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 5px 0 0;
+    padding: 11px 23px;
+    cursor: pointer;
+}
+
+.search-option span:hover {
+    background-color: #444;
+    border-radius: 30px;
+    color: #fff;
+}
+
+.option {
+    background-color: #444;
+    border-radius: 30px;
+    color: #fff!important;
+    box-shadow: 0 5px 35px 0 rgba(0,0,0,.3);
+}
+
+
+
+
+#inner-container {
+    max-width: 80%;
+    margin: auto auto;
+    background-color: rgba(54,57,63,255);
+    min-height: 98vh;
+}
+
+#icon-list-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+
+.icon-list-container {
+    flex: 10%;
+    max-width: 10%;;
+    margin: 2px 2px;
+}
+
+.ultra_rare {
+    background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff);
+}
+
+.super_rare {
+    background: #ee9;
+}
+
+.elite {
+    background: #c4adff;
+}
+
+.rare {
+    background: #9fe8ff;
+}
+
+.normal {
+    background: #cccccc
+}
+
+.icon-container {
+    padding: 4px;
+}
+
+.icon-container img {
+    display: block;
+}
+
+.icon-container, .icon-container img {
+    width: 100%;
+    border-radius: .25rem;
+}
+
+.ship-name {
+    color: rgb(205, 205, 205);
+    text-overflow: clip;
+}
+

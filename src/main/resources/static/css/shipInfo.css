@@ -1,0 +1,546 @@
+* {
+    box-sizing: border-box;
+    font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
+}
+
+body {
+    background-color: rgba(47,49,54,255);
+    opacity: 1;
+    padding-top: 50px;
+    margin: 0;
+    position: relative;
+}
+
+
+#overlay-layer {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(50,50,50);
+    opacity: 0.5;
+    z-index: 90;
+    position: absolute;
+    display: none;
+    margin-top: -50px;
+}
+#outer-container {
+    max-width: 1080px;
+    height: 100vw;
+    max-height: 700px;
+    margin: auto;
+}
+#inner-container {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(54,54,54);
+    position: relative;
+}
+
+
+
+#image-layer {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-image: url("https://azurlane.netojuu.com/images/3/3a/MainDayBG.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+#image-container {
+    display: inline-block;
+    padding: 0 20px;    
+}
+#image-container img {
+    position: absolute;
+    z-index: 0;
+    margin: 0 auto;
+    display: block;
+}
+
+
+
+#info-layer {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+}
+#left-info {
+    flex: 58%;
+    max-width: 58%;
+    position: relative;
+}
+#right-info {
+    flex: 42%;
+    max-width: 42%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: transform 0.5s;
+}
+
+
+
+#info-collapse-button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+#info-collapse-button img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(0) invert(1);
+}
+.collapsing-info {
+    transform: translate(455px, 0);
+}
+
+
+
+#skin-button {
+    width: 60px;
+    background-color: #555;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    user-select: none;
+}
+#skin-button img {
+    display: block;
+    width: 100%;
+    transition: transform 0.3s;
+}
+#skin-button:hover img {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#skin-option-container {
+    position: absolute;
+    left: 25%;
+    bottom: 25%;
+    display: none;
+    z-index: 99;
+    opacity: 1;
+    align-items: center;
+}
+#skin-inner-container {
+    max-width: 620px;
+    overflow: scroll;
+}
+#skin-option-wrapper {
+    position: relative;
+    display: flex;
+    gap: 10px;
+}
+.skin-option {
+    display: inline-block;
+    min-width: 200px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: rgb(200,200,200);
+    cursor: pointer;
+}
+.skin-option img {
+    position: relative;
+    /* left: -100%;
+    bottom: 50%; */
+}
+.next-arrow {
+    position: relative;
+    width: 50px;
+    cursor: pointer;
+    animation-name: next;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+.next-arrow img {
+    width: 100%;
+    filter: brightness(0) invert(1);
+}
+@keyframes next {
+    25% {
+        scale: 1.1;
+    }
+    75% {
+        scale: 1.2;
+    }
+}
+
+
+
+#title-container {
+    position: relative;
+    margin: 30px 0 10px 0;
+    padding-left: 10px;
+}
+#ship-name-title {
+    display: inline-block;
+    font-size: 1.5em;
+    color: white;
+}
+
+
+
+#ship-nation-info {
+    width: 140px;
+    display: inline-block;
+    position: absolute;
+    right: 1%;
+    top: 70%;
+}
+#nation-icon-outer {
+    background-color: #555;
+    width: 90%;
+    margin: auto auto;
+    padding: 3px 0;
+}
+#nation-icon-container {
+    width: 55px;
+    height: 55px;
+    background-color: white;
+    margin: auto auto;
+    border-radius: 2px;
+    padding: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#nation-icon-container img {
+    width: 100%;
+    height: 100%;
+}
+#nation-name, #class-name {
+    background-color: #111;
+    color: #ddd;
+    padding: 3px 5px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 0.8em;
+    overflow: hidden;
+}
+
+
+
+#basic-info-container {
+    background-color: #222;
+    padding-left: 10px;
+}
+#rarity-info-container {
+    display: flex;
+    align-items: center;
+}
+#rarity-icon-container, #rarity-info {
+    display: inline-block;
+}
+#rarity-info {
+    margin-left: 20px;
+}
+.fa {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+
+
+.ultra_rare, .decisive {
+    color: #f030ea;
+}
+.super_rare {
+    color: #FAC848;
+}
+.elite {
+    color: #D666FC;
+}
+.rare {
+    color: #4199F0;
+}
+.normal {
+    color: #CCCDD3;
+}
+#rarity-text {
+    text-align: center;
+}
+
+
+#class-info-container {
+    display: flex;
+    margin-top: 10px;
+}
+.class-info-l {
+    background-color: #333;
+    color: #ddd;
+    padding: 5px 10px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+#class-icon, #armor-icon {
+    display: inline-block;
+}
+.class-info-r {
+    background-color: #444444ee;
+    color: white;
+    padding: 5px 10px;
+    min-width: 185px;
+    line-height: 1.5;
+}
+#armor-info-container {
+    display: flex;
+    align-items: center;
+}
+
+
+
+#gear-info-container {
+    background-color: #4f4f4f;
+    padding: 10px 15px 0 15px;
+}
+#gear-header-title {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    font-weight: 600;
+}
+#gear-info-inner {
+    background-color: #666;
+    padding: 4px;
+    display: flex;
+}
+.gear-col {
+    background-color: #444;
+    margin-bottom: 4px;
+    border-radius: 2px;
+    padding: 3px;
+    font-size: 13px;
+    color: white;
+    width: 226px;
+}
+.gear-title-container {
+    color: #222;
+    background-color: #999;
+    border-radius: 2px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+.gear-icon {
+    display: inline-block;
+    background-color: gray;
+    margin-left: 5px;
+    padding-left: 1px;
+    border-radius: 2px;
+}
+.gear-icon img { width: 20px; }
+.gear-info { 
+    background-color: #333;
+    width: 165px;
+    padding: 5px 5px 5px 0;
+}
+#augment-info {
+    width: 100%;
+    margin-left: 4px;
+    overflow: hidden;
+}
+#augment-icon-container {
+    height: 100%;
+}
+#augment-icon-container img {
+    display: block;
+    margin: auto auto;
+    width: 90px;
+}
+
+
+
+#stat-container, #skill-container {
+    margin-top: 20px;
+    color: white;
+    position: relative;
+}
+.switch-stat-lv {
+    background-color: #666!important;
+}
+.stat-lv-button, #skill-num-container div {
+    display: inline-block;
+    background-color: #444;
+    padding: 8px 15px;
+    color: white;
+    user-select: none;
+}
+#skill-num-container div:first-child {
+    background-color: #666;
+}
+#lv-container div:hover, #skill-num-container div:hover {
+    background-color: #666;
+    cursor: pointer;
+}
+#lv-container div:nth-child(2) {
+    margin-left: -2px;
+}
+#lv-header-container, #skill-header-container {
+    background-color: #4f4f4f;
+    position: relative;
+    border-bottom: 10px solid #2f2f2f;
+}
+#lv-title-header, #skill-num-header {
+    color: #636363;
+    font-size: 4em;
+    margin-left: 5px;
+}
+#stat-title-header, #skill-title-header {
+    position: absolute;
+    top: 30%;
+    margin-left: 20px;
+    font-size: 1.5em;
+}
+#stat-info-container, #skill-inf0-container {
+    background-color: #4f4f4f;
+}
+#stat-info-inner {
+    width: fit-content;
+    padding: 5px 20px;
+    background-color: rgb(100,100,100);
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.stat-wrapper {
+    display: flex;
+}
+.stat-header {
+    width: 130px;
+    height: 40px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.stat-header img {
+    width: 30px;
+}
+.stat-info {
+    background-color: #444444ee;
+    width: 60px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#skill-num-container div:not(:first-child) {
+    margin-left: -2px;
+}
+#skill-title-header {
+    top: 35%;
+    font-size: 20px;
+    color: white;
+    transition: color 0.3s, z-index 0.3s;
+}
+#skill-icon {
+    position: absolute;
+    top: -40%;
+    right: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#skill-icon img {
+    width: 70px;
+}
+#fate-skill-title-header {
+    font-size: 20px;
+    position: absolute;
+    top: 35%;
+    margin-left: 20px;
+    color: #4f4f4f;
+    z-index: -1;
+    transition: color 0.3s, z-index 0.3s;
+}
+#fate-button {
+    position: absolute;
+    display: inline-block;
+    background-color: #444;
+    padding: 8px 15px;
+    cursor: pointer;
+    user-select: none;
+    top: 60%;
+    right: 10px;
+    z-index: 20;
+}
+#fate-text {
+    color: black;
+    display: inline-block;
+    transition: color 0.3s;
+}
+#fate-switch-icon {
+    display: inline-block;
+    width: 15px;
+}
+#fate-switch-icon img {
+    width: 100%;
+    transition: filter 0.3s, transform 0.3s;
+}
+#default-skill-container {
+    position: relative;
+    z-index: 10;
+}
+#fate-skill-container {
+    position: absolute;
+    z-index: 5;
+    min-width: 450px;
+    transform: translate(50px, -200px);
+    transition: transform 0.3s, z-index 0.3s;
+}
+.switching-default-title {
+    color: #4f4f4f!important;
+    z-index: -1!important;
+}
+.switching-fate-title {
+    color: white!important;
+    z-index: 1!important;
+}
+.switching-fate-container {
+    z-index: 15!important;
+    transform: translate(0, -230px)!important;
+}
+.switching-text {
+    color: white!important;
+}
+.switching {
+    filter: brightness(0) invert(1);
+    transform: rotate(180deg);
+}
+.skill-info-container {
+    height: 230px;
+    text-align: justify;
+    background-color: #4f4f4f;
+    padding: 10px 10px;
+}
+#skill-description, #fate-skill-description {
+    background-color: #444444;
+    margin: 0;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 0px;
+}
+  

@@ -97,7 +97,7 @@ input:focus {
     margin: 2px 2px;
 }
 
-.ultra_rare {
+.ultra_rare, .decisive{
     background: linear-gradient(120deg,#fbffca,#baffbf,#a7efff,#ffabff);
 }
 

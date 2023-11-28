@@ -1,0 +1,32 @@
+16:45:32.150 [http-nio-8080-exec-2] INFO  com.demo.Ship.ShipService - Skin repository get skin info by ship id 10010
+16:45:32.173 [http-nio-8080-exec-2] INFO  com.demo.Ship.ShipService - Skin repository get skin info by ship id 10010
+16:49:33.892 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Skin repository get skin info by ship id 10010
+16:49:33.908 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Skin repository get skin info by ship id 10010
+21:31:25.738 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Ship repository finding ship by id 10010
+21:31:25.814 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Stat120 repository finding ship stat by id 10010
+21:31:25.820 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Skill repository finding combined skill by id 10010
+21:31:25.872 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Getting skin id by ship id, getSkinIdByShipId
+21:31:25.872 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Skin repository get skin info by ship id 10010
+21:33:44.624 [http-nio-8080-exec-10] INFO  com.demo.Ship.ShipService - Ship repository finding ship by id 10010
+21:33:44.634 [http-nio-8080-exec-10] INFO  com.demo.Ship.ShipService - Stat120 repository finding ship stat by id 10010
+21:33:44.639 [http-nio-8080-exec-10] INFO  com.demo.Ship.ShipService - Skill repository finding combined skill by id 10010
+21:33:44.641 [http-nio-8080-exec-10] INFO  com.demo.Ship.ShipService - Getting skin id by ship id, getSkinIdByShipId
+21:33:44.641 [http-nio-8080-exec-10] INFO  com.demo.Ship.ShipService - Skin repository get skin info by ship id 10010
+21:34:14.412 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Skill repository finding combined skill by id 10010 and num 2
+21:34:48.743 [http-nio-8080-exec-10] INFO  com.demo.Ship.ShipService - Ship repository finding ship by id 100100
+21:34:48.746 [http-nio-8080-exec-10] WARN  com.demo.Ship.ShipService - At getShipBasicInfo, ship not found with id 100100
+21:38:56.610 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Ship repository finding ship by id 10010
+21:38:56.717 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Stat120 repository finding ship stat by id 10010
+21:38:56.725 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Skill repository finding combined skill by id 10010
+21:38:56.794 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Getting skin id by ship id, getSkinIdByShipId
+21:38:56.794 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Skin repository get skin info by ship id 10010
+21:43:07.013 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Ship repository finding ship by id 10010
+21:43:07.129 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Stat120 repository finding ship stat by id 10010
+21:43:07.138 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Skill repository finding combined skill by id 10010
+21:43:07.211 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Getting skin id by ship id, getSkinIdByShipId
+21:43:07.211 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Skin repository get skin info by ship id 10010
+21:47:42.832 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Ship repository finding ship by id 10010
+21:47:42.924 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Stat120 repository finding ship stat by id 10010
+21:47:42.931 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Skill repository finding combined skill by id 10010
+21:47:42.993 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Getting skin id by ship id, getSkinIdByShipId
+21:47:42.993 [http-nio-8080-exec-1] INFO  com.demo.Ship.ShipService - Skin repository get skin info by ship id 10010

@@ -34,12 +34,12 @@
                     </div>
                     <div id="search-rarity" class="search-option">
                         <ul>
-                            <li><span onclick="fetchShipListRarity('ultra')">Ultra Rare</span></li>
-                            <li><span onclick="fetchShipListRarity('super')">Super Rare</span></li>
-                            <li><span onclick="fetchShipListRarity('elite')">Elite</span></li>
-                            <li><span onclick="fetchShipListRarity('rare')">Rare</span></li>
-                            <li><span onclick="fetchShipListRarity('normal')">Normal</span></li>
-                            <li><span onclick="fetchShipListRarity('all')">All</span></li>
+                            <li><span onclick="fetchShipListRarity('Ultra Rare')">Ultra Rare</span></li>
+                            <li><span onclick="fetchShipListRarity('Super Rare')">Super Rare</span></li>
+                            <li><span onclick="fetchShipListRarity('Elite')">Elite</span></li>
+                            <li><span onclick="fetchShipListRarity('Rare')">Rare</span></li>
+                            <li><span onclick="fetchShipListRarity('Normal')">Normal</span></li>
+                            <li><span onclick="fetchShipListRarity('All')">All</span></li>
                         </ul>
                     </div>
                     <div id="search-holder" class="search-option" style="display:block">
@@ -52,11 +52,11 @@
             <ul id="icon-list-box">
                 <li class="icon-list-container" th:fragment="content" th:each="ship : ${ship_list}">
                     <div th:class="'icon-container ' + ${ship.rarity_class}">
-                        <a th:href="'/ship_list/ship_info/'+ ${#strings.toLowerCase(ship[0])}">
-                            <img th:src="@{'/images/ship_icons/'+ ${#strings.toLowerCase(ship[0])} + '.png'}" alt="icon">
+                        <a th:href="'/ship_list/ships/'+ ${ship.name}">
+                            <img th:src="@{'/images/ship_icons/'+ ${#strings.toLowerCase(ship.name)} + '.png'}" alt="icon">
                         </a>
                     </div>
-                    <div class="ship-name" th:text="${ship[0]}"></div>
+                    <div class="ship-name" th:text="${ship.name}"></div>
                 </li>
             </ul>
         </div>

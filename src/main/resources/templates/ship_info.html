@@ -16,14 +16,18 @@
             <div id="image-layer">
                 <div id="image-container">
                     <img id="ship-image" th:style="'top: '+${imagePos.top} + 'px; left: ' + ${imagePos.left} + 'px;'"
-                         th:src="@{'/images/ship_images/'+ ${ship.id} + '.png'}" alt=""
+                         th:src="@{'/images/ship_images/'+ ${ship.bg_image_name}}" alt=""
                          th:width="${imagePos.width}" th:height="${imagePos.height}">
+                    <img class="draggableImage" id="ship-image-skin" th:if="${skinImagePos}"
+                         th:style="'z-index: -1; top: '+${skinImagePos.top} + 'px; left: ' + ${skinImagePos.left} + 'px;'"
+                         th:src="@{'/images/skin_images/'+ ${skin}}" alt=""
+                         th:width="${skinImagePos.width}" th:height="${skinImagePos.height}">
                 </div>
             </div>
             <div id="info-layer">
 
                 <div id="left-info">
-                    <div id="skin-button">
+                    <div id="skin-button" th:if="${skinImagePos}">
                         <img th:src="@{'/images/skin_icon.jpg'}" alt="">
                     </div>
                     <div id="skin-option-container">
@@ -34,24 +38,6 @@
                             <div id="skin-option-wrapper">
                                 <div class="skin-option">
                                     <img src="../static/images/skin_icons/1024px-New_JerseySummer.png" alt="" width="870" height="701" style="left: -357.982px; top: -223.981px;">
-                                </div>
-                                <div class="skin-option">
-                                    <img src="../static/images/skin_icons/1102px-New_JerseyBunny.png" alt="" width="870" height="701" style="left: -353.998px; top: -174.97px;">
-                                </div>
-                                <div class="skin-option">
-                                    <img src="../static/images/skin_icons/698px-New_JerseyWedding.png" alt="" width="1012" height="1196" style="left: -334.289px; top: -271.979px;">
-                                </div>
-                                <div class="skin-option">
-                                    <img src="../static/images/skin_icons/698px-New_JerseyWedding.png" alt="" width="1012" height="1196" style="left: -334.289px; top: -271.979px;">
-                                </div>
-                                <div class="skin-option">
-                                    <img src="../static/images/skin_icons/698px-New_JerseyWedding.png" alt="" width="1012" height="1196" style="left: -334.289px; top: -271.979px;">
-                                </div>
-                                <div class="skin-option">
-                                    <img src="../static/images/skin_icons/698px-New_JerseyWedding.png" alt="" width="1012" height="1196" style="left: -334.289px; top: -271.979px;">
-                                </div>
-                                <div class="skin-option">
-                                    <img src="../static/images/skin_icons/698px-New_JerseyWedding.png" alt="" width="1012" height="1196" style="left: -334.289px; top: -271.979px;">
                                 </div>
                             </div>
                         </div>
@@ -118,7 +104,7 @@
                                 <div id="gear-inner-container">
                                     <div id="gear-header-title">Gear</div>
                                     <div id="gear-info-inner">
-                                        <div id="equipt-info">
+                                        <div id="equip-info">
                                             <div class="gear-col">
                                                 <div class="gear-title-container">
                                                     <span class="gear-title" th:text="${gearSlot.equipment1}">BB Main Guns</span>
@@ -137,7 +123,7 @@
                                             <div class="gear-col">
                                                 <div class="gear-title-container">
                                                     <span class="gear-title" th:text="${gearSlot.equipment2}">CL/DD Main Guns</span>
-                                                    <div class="gear-icon"><img th:src="@{'/images/gear_icons/topedoes.png'}" alt=""></div>
+                                                    <div class="gear-icon"><img th:src="@{'/images/gear_icons/torpedoes.png'}" alt=""></div>
                                                 </div>
                                                 <div class="gear-info">
                                                     <div class="efficiency-info">
@@ -172,14 +158,54 @@
                                                     <span id="augment-type" th:text="${ship.class_augment}">Bow and gun</span>
                                                 </div>
                                             </div>
-                                            <div class="gear-col" id="augment-icon-container" style="width: unset;">
-                                                <div class="gear-col" style="color: white; width: unset">
-                                                    <span id="augment-name" style="display: inline-block; text-align: center;"
-                                                    th:if="${augment != null}">Templar Knight's Battle Standard</span>
+                                            <div class="gear-col" id="augment-icon-container">
+                                                <div class="gear-col" style="color: white; width: unset; text-align: center;">
+                                                    <span id="augment-name" style="display: inline-block; font-weight: 700;"
+                                                    th:if="${augment}" th:text="${augment.name}">Templar Knight's Battle Standard</span>
                                                 </div>
-                                                <div th:if="${augment != null}">
-                                                    <img th:src="@{'/images/augment_icons/' + ${ship.id} + '.png'}" alt="">
+                                                <div th:if="${augment}">
+                                                    <img id="augment-icon-image" th:src="@{'/images/augment_icons/' + ${augment.image_link}}" alt="">
                                                 </div>
+
+                                                <div id="augment-info-container" style="display: none;" th:if="${augment}">
+                                                    <div id="augment-collapse-button">
+                                                        <img th:src="@{'/images/failed.png'}" alt="">
+                                                    </div>
+                                                    <table id="augment-stat-container">
+                                                        <tbody>
+                                                        <tr class="augment-stat-wrapper">
+                                                            <td class="augment-stat-icon"><img th:src="@{'/images/stat_icons/stat_' + ${#strings.toLowerCase(augment.stat_type1)} + '.png'}" alt=""></td>
+                                                            <td th:text="${augment.stat_mod1_num[0]}">99</td>
+                                                            <td>-></td>
+                                                            <td th:text="${augment.stat_mod1_num[1]}">99</td>
+                                                            <td th:text="' + ' + ${augment.stat_mod_range_num[0]}"> + 10</td>
+                                                        </tr>
+                                                        <tr class="augment-stat-wrapper">
+                                                            <td class="augment-stat-icon"><img th:src="@{'/images/stat_icons/stat_' + ${#strings.toLowerCase(augment.stat_type2)} + '.png'}" alt=""></td>
+                                                            <td th:text="${augment.stat_mod2_num[0]}">9</td>
+                                                            <td>-></td>
+                                                            <td th:text="${augment.stat_mod2_num[1]}">17</td>
+                                                            <td th:text="' + ' + ${augment.stat_mod_range_num[1]}"> + 5</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div id="augment-description-container">
+                                                        <div class="augment-description">
+                                                            <span class="augment-description-header" th:text="${augment.buff_name}+': '">Slash Attack - Area: </span>
+                                                            <span th:text="${augment.buff_effect}">
+                                                            The ship in the front-most position of your Vanguard performs a slash attack. Slash attack pattern, range, and DMG are based on the number of ships equipped with slash attack gear, the ships' hull type, and the equipped module's effects.
+                                                            </span>
+                                                        </div>
+                                                        <br>
+                                                        <div class="augment-description">
+                                                            <span class="augment-description-header" th:text="${augment.skill_upgrade_name}+': '">Piercing Shells - Edinburgh: </span>
+                                                            <span th:text="${augment.skill_upgrade}">
+                                                            Increases damage dealt by armor-piercing shots by 15% (25%). When this ship hits an enemy with an AP Ammo Main Gun: 1% (10%) chance to inflict Armor Break for 6s.
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -199,7 +225,7 @@
                                     <div id="stat-info-inner">
                                         <div class="stat-wrapper" th:each="entry : ${stat120.stats.entrySet()}">
                                             <div class="stat-header" th:text="${entry.key}">Health
-                                                <img th:src="@{'/images/stat_icons/stat_' + ${#string.toLowerCase(entry.key)} + '.png'}" alt="">
+                                                <img th:src="@{'/images/stat_icons/stat_' + ${#strings.toLowerCase(entry.key)} + '.png'}" alt="">
                                             </div>
                                             <div class="stat-info" th:text="${entry.value}">10000</div>
                                         </div>
@@ -245,10 +271,11 @@
     <script th:inline="javascript">window.ship_id = /*[[${ship.id}]]*/ null;</script>
     <script th:src="@{/js/ship_info-skill.js}" type="text/javascript"></script>
     <script th:src="@{/js/ship_info-stat.js}" type="text/javascript"></script>
-    <script th:src="@{/js/ship_info.js}" type="text/javascript"></script>
+    <script th:src="@{/js/ship_info-skin.js}" type="text/javascript"></script>
+    <script th:if="${augment}" th:src="@{/js/ship_info-augment.js}" type="text/javascript"></script>
 
     <script>
-        const draggableImage = document.getElementById('draggableImage');
+        const draggableImage = document.getElementsByClassName('draggableImage')[0];
         const draggContainer = document.getElementById('image-container');
         let isDragging = false;
 
@@ -317,24 +344,6 @@
 
         });
     </script>
-    <script>
-        let skinbutton = document.getElementById("skin-button");
-        let skindisplay = document.getElementById("skin-option-container");
-
-        overlay = document.getElementById("overlay-layer");
-        overlay.addEventListener("click", () => {
-            overlay.style.display = "none";
-            skindisplay.style.display = "none";
-        });
-
-        skinbutton.addEventListener("click", () => {
-            display = skindisplay.style.display;
-            skindisplay.style.display = (display == "flex") ? "none" : "flex";
-            overlay.style.display = "block";
-        });
-
-    </script>
-
 
 </body>
 </html>

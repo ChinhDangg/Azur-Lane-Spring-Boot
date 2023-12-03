@@ -1,0 +1,35 @@
+<configuration>
+
+    <!-- console appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- rolling file appender -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>src/logs/ship.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>logs/ship.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger-specific configuration for a package -->
+    <logger name="com.demo.Ship.ShipService" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE" />
+<!--        remove comment below for writing log to log file in logs package-->
+<!--        <appender-ref ref="FILE" />-->
+    </logger>
+
+    <root level="ERROR">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+
+</configuration>

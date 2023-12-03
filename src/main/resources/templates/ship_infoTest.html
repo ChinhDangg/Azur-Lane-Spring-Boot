@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/shipInfo.css">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.css" rel="stylesheet">
+    <title>Some title</title>
+    <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body>
+    <div id="overlay-layer"></div>
+    <div id="outer-container">
+        <div id="inner-container">
+
+            <div id="image-layer">
+                <div id="image-container">
+                    <img id="ship-image" style="top: -303px; left: -374px;"
+                         src="../static/images/ship_images/ship10002_New_Jersey.png"
+                         alt="" width="1464" height="1237" >
+                    <img class="draggableImage" id="ship-image-skin"
+                         style="z-index: -1; top: 47px; left: -25px;"
+                         src="../static/images/skin_images/skin20001_10002New_Jersey.png" alt=""
+                         width="695" height="560">
+                </div>
+            </div>
+            <div id="info-layer">
+
+                <div id="left-info">
+                    <div id="skin-button">
+                        <img src="../static/images/skin_icon.jpg" alt="">
+                    </div>
+                    <div id="skin-option-container">
+                        <div class="next-arrow">
+                            <img src="../static/images/left-arrow.png" alt="">
+                        </div>
+                        <div id="skin-inner-container">
+                            <div id="skin-option-wrapper">
+                                <div class="skin-option">
+                                    <img src="../static/images/skin_images/skin20001_10002New_Jersey.png" alt="" width="870" height="701" style="left: -357.982px; top: -223.981px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="next-arrow">
+                            <img src="../static/images/right-arrow.png" alt="">
+                        </div>
+                    </div>
+                    <div id="info-collapse-button">
+                        <img src="../static/images/collapse.png" alt="">
+                    </div>
+                </div>
+
+                <div id="right-info">
+                    <div id="right-info-container">
+                        <div id="info-menu">
+                            <div id="title-container">
+                                <div id="ship-name-title">Specialized Bulin Custom MKIII</div>
+                                <div id="ship-construction" style="color: yellow;">Research</div>
+                                <div id="ship-nation-info">
+                                    <div id="class-name">Plymouth</div>
+                                    <div id="nation-icon-outer">
+                                        <div id="nation-icon-container">
+                                            <img src="../static/images/nation_icons/nation_universal.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div id="nation-name">Northern Parliament</div>
+                                </div>
+                            </div>
+
+                            <div id="basic-info-container">
+                                <div id="rarity-info-container">
+                                    <div id="rarity-icon-container">
+                                        <img src="../static/images/rarity_icons/rarity_ultra_rare.png" alt="">
+                                    </div>
+                                    <div id="rarity-info" class="ultra_rare">
+                                        <div id="rarity-text">Ultra Rare</div>
+                                        <div>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="class-info-container">
+                                    <span class="class-info-l">Class</span>
+                                    <div id="class-icon">
+                                        <img src="../static/images/type_icons/type_aviation_battleship.png" alt="">
+                                    </div>
+                                    <span class="class-info-r">Light Aircraft Carrier</span>
+                                </div>
+
+                                <div id="armor-info-container">
+                                    <span class="class-info-l">Armor</span>
+                                    <div id="armor-icon">
+                                        <img src="../static/images/stat_icons/stat_armor.png" alt="armor">
+                                    </div>
+                                    <span class="class-info-r" style="min-width: 88px;" th:text="${ship.armor}">Medium</span>
+                                </div>
+                            </div>
+
+                            <div id="gear-info-container">
+                                <div id="gear-inner-container">
+                                    <div id="gear-header-title">Gear</div>
+                                    <div id="gear-info-inner">
+                                        <div id="equip-info">
+                                            <div class="gear-col">
+                                                <div class="gear-title-container">
+                                                    <span class="gear-title">BB Main Guns</span>
+                                                    <div class="gear-icon"><img src="../static/images/gear_icons/bbmaingun.png" alt=""></div>
+                                                </div>
+                                                <div class="gear-info">
+                                                    <div class="efficiency-info">
+                                                        <span>130 -></span>
+                                                        <span>135</span>
+                                                    </div>
+                                                    <div class="mount-info">Main Gun Mount:
+                                                        <span>3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gear-col">
+                                                <div class="gear-title-container">
+                                                    <span class="gear-title">CL/DD Main Guns</span>
+                                                    <div class="gear-icon"><img src="../static/images/gear_icons/torpedoes.png" alt=""></div>
+                                                </div>
+                                                <div class="gear-info">
+                                                    <div class="efficiency-info">
+                                                        <span>130 -></span>
+                                                        <span>135</span>
+                                                    </div>
+                                                    <div class="mount-info">Secondary Gun Base:
+                                                        <span>3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="gear-col">
+                                                <div class="gear-title-container">
+                                                    <span class="gear-title">Anti-Air Guns / CA Main Guns</span>
+                                                    <div class="gear-icon"><img src="../static/images/gear_icons/antiair.png" alt=""></div>
+                                                </div>
+                                                <div class="gear-info">
+                                                    <div class="efficiency-info">
+                                                        <span>130 -></span>
+                                                        <span>135</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="augment-info">
+                                            <div class="gear-col" style="width: unset;">
+                                                <div class="gear-title-container">
+                                                    <span>Augment</span>
+                                                    <div class="gear-icon"><img src="../static/images/gear_icons/augment.png" alt=""></div>
+                                                </div>
+                                                <div class="gear-info">
+                                                    <span id="augment-type">Bow and gun</span>
+                                                </div>
+                                            </div>
+                                            <div class="gear-col" id="augment-icon-container">
+                                                <div class="gear-col" style="color: white; width: unset; text-align: center;">
+                                                    <span id="augment-name" style="display: inline-block; font-weight: 700;">Templar Knight's Battle Standard</span>
+                                                </div>
+                                                <div>
+                                                    <img id="augment-icon-image" src="../static/images/augment_icons/10001Ultra_Rainbow_Hammer.png" alt="">
+                                                </div>
+
+                                                <div id="augment-info-container" style="display: none;">
+                                                    <div id="augment-collapse-button">
+                                                        <img src="../static/images/failed.png" alt="">
+                                                    </div>
+                                                    <table id="augment-stat-container">
+                                                        <tbody>
+                                                            <tr class="augment-stat-wrapper">
+                                                                <td class="augment-stat-icon"><img src="../static/images/stat_icons/stat_health.png" alt=""></td>
+                                                                <td>99</td>
+                                                                <td>-></td>
+                                                                <td>99</td>
+                                                                <td> + 10</td>
+                                                            </tr>
+                                                            <tr class="augment-stat-wrapper">
+                                                                <td class="augment-stat-icon"><img src="../static/images/stat_icons/stat_accuracy.png" alt=""></td>
+                                                                <td>9</td>
+                                                                <td>-></td>
+                                                                <td>17</td>
+                                                                <td> + 5</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div id="augment-description-container">
+                                                        <div class="augment-description">
+                                                            <span class="augment-description-header">Slash Attack - Area: </span>
+                                                            The ship in the front-most position of your Vanguard performs a slash attack. Slash attack pattern, range, and DMG are based on the number of ships equipped with slash attack gear, the ships' hull type, and the equipped module's effects.
+                                                        </div>
+                                                        <br>
+                                                        <div class="augment-description">
+                                                            <span class="augment-description-header">Piercing Shells - Edinburgh: </span>
+                                                            Increases damage dealt by armor-piercing shots by 15% (25%). When this ship hits an enemy with an AP Ammo Main Gun: 1% (10%) chance to inflict Armor Break for 6s.
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="stat-container">
+                                <div id="lv-container">
+                                    <div class="stat-lv-button switch-stat-lv">Lv 120</div>
+                                    <div class="stat-lv-button">Lv 125</div>
+                                </div>
+                                <div id="lv-header-container">
+                                    <div id="lv-title-header">120</div>
+                                    <div id="stat-title-header">Stats</div>
+                                </div>
+                                <div id="stat-info-container">
+                                    <div id="stat-info-inner">
+                                        <div class="stat-wrapper">
+                                            <div class="stat-header">Health
+                                                <img src="../static/images/stat_icons/stat_health.png" alt="">
+                                            </div>
+                                            <div class="stat-info">10000</div>
+                                        </div>
+                                        <div class="stat-wrapper">
+                                            <div class="stat-header">Health
+                                                <img src="../static/images/stat_icons/stat_health.png" alt="">
+                                            </div>
+                                            <div class="stat-info">10000</div>
+                                        </div>
+                                        <div class="stat-wrapper">
+                                            <div class="stat-header">Health
+                                                <img src="../static/images/stat_icons/stat_health.png" alt="">
+                                            </div>
+                                            <div class="stat-info">10000</div>
+                                        </div>
+                                        <div class="stat-wrapper">
+                                            <div class="stat-header">Health
+                                                <img src="../static/images/stat_icons/stat_health.png" alt="">
+                                            </div>
+                                            <div class="stat-info">10000</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="skill-container">
+                                <div id="skill-num-container">
+                                    <div class="skill_num">Skill 1</div>
+                                </div>
+                                <div id="skill-header-container">
+                                    <div id="skill-num-header">Skill 1</div>
+                                    <div id="skill-title-header">Dragon's Breath</div>
+                                    <div id="fate-skill-title-header">Fate Skill Name</div>
+                                    <div id="skill-icon"><img src="../static/images/skill_icons/skill_14510.png" alt=""></div>
+                                    <div id="fate-button">
+                                        <div id="fate-text" class="switching-text">Fate</div>
+                                        <div id="fate-switch-icon"><img class="switching" id="switch-icon" src="../static/images/reload.png" alt=""></div>
+                                    </div>
+                                </div>
+                                <div id="default-skill-container" class="skill-info-container">
+                                    <pre id="skill-description">
+                                        When this ship fires her Main Guns: 50% (100%) chance to fire a Lv.1 (Lv.10) special barrage that always deals Critical Hits (DMG is based on the skill's level). Additionally, 10s after the battle starts: fires this same barrage.<br>
+                                        (The barrage pattern is independent of this ship's position in the Main Fleet. It inflicts Armor Break to enemies it hits. Armor-Broken enemies take 5% more DMG for 8s. This Armor Break also stacks with other sources of Armor Break.)
+                                    </pre>
+                                </div>
+                                <div id="fate-skill-container" class="skill-info-container">
+                                    <pre id="fate-skill-description">Fate text text text description</pre>
+                                </div>
+                            </div>
+
+                            <div style="height: 200px;"></div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>window.ship_id = 10001;</script>
+    <script src="../static/js/ship_info-skill.js"></script>
+    <script src="../static/js/ship_info-stat.js"></script>
+    <script src="../static/js/ship_info-skin.js"></script>
+    <script src="../static/js/ship_info-augment.js"></script>
+
+    <script>
+        const draggableImage = document.getElementsByClassName('draggableImage')[0];
+        const draggContainer = document.getElementById('image-container');
+        let isDragging = false;
+
+        // Store initial position
+        let initialX, initialY;
+
+        // Store the offset between the mouse click and the image's top-left corner
+        let xOffset, yOffset;
+
+        // Store the initial image scale
+        let scale = 1;
+
+        let initialWidth = draggableImage.width;
+        let initialHeight = draggableImage.height;
+
+        // Function to handle mouse down event
+        draggableImage.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            isDragging = true;
+            initialX = draggableImage.getBoundingClientRect().left;
+            initialY = draggableImage.getBoundingClientRect().top;
+
+            xOffset = e.clientX;
+            yOffset = e.clientY;
+        });
+
+        // Function to handle mouse move event
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            let containerX = draggContainer.getBoundingClientRect().left;
+            let containerY = draggContainer.getBoundingClientRect().top;
+
+            var x = initialX + (e.clientX - xOffset) - containerX;
+            var y = initialY + (e.clientY - yOffset) - containerY;
+
+            console.log("Initial", initialX, " ", initialY);
+            console.log("Offset", xOffset, " ", yOffset);
+            console.log("Client", e.clientX, " ", e.clientY);
+            console.log("Container", draggContainer.getBoundingClientRect().left, " ", draggContainer.getBoundingClientRect().top);
+            console.log("New", x, " ", y);
+
+            draggableImage.style.left = x + 'px';
+            draggableImage.style.top = y + 'px';
+        });
+
+        // Function to handle mouse up event
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Function to handle mouse wheel event
+        draggableImage.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            
+            // Calculate the new scale based on the mouse scroll direction
+            scale += e.deltaY * -0.0001;
+            
+            // Limit the minimum and maximum scale
+            scale = Math.min(Math.max(0.3, scale), 3);
+
+            width = parseInt(scale * initialWidth);
+            height = parseInt(scale * initialHeight);
+
+            draggableImage.width = width;
+            draggableImage.height = height;
+
+        });
+    </script>
+
+</body>
+</html>
